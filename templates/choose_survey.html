@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}Survey Choice{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1 class="display-1 my-4 text-center">Choose a Survey</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <form action="/survey_start" class="text-center">
+                <select class="form-select fs-4" name="survey">
+                    {% for survey in surveys %}
+                    <option value="{{survey}}">{{survey.capitalize()}} Survey</option>
+                    {% endfor %}
+                </select>
+                <button class="btn btn-lg btn-success my-4">Choose Survey</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+{% endblock %}

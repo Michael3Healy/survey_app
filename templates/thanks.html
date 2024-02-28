@@ -4,6 +4,27 @@
 
 {% block content %}
 
-<h1 class="text-center my-4">Thank you for completing our survey!</h1>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1 class="text-center my-4">Thank you for completing our survey!</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col fs-4 my-3">
+            <ul class="list-group">
+                {% for (question, answer) in session['responses'].items() %}
+                <li class="my-3">
+                    <strong>{{question}}</strong>
+                    {% for item in answer %}
+                    {{item}}{% if not loop.last %}, {% endif %}
+                    {%endfor %}
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+
 
 {% endblock %}

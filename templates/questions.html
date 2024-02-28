@@ -19,9 +19,17 @@
                         <label for="{{answer}}" class="form-check-label">{{answer}}</label>
                         <input type="radio" id="{{answer}}" class="form-check-input mx-1" name="answer"
                             value="{{answer}}" required>
+                        <input type="hidden" name="question" value="{{question}}">
                         {% endfor %}
                     </div>
                 </div>
+                {% if allow_text %}
+                <div class="row">
+                    <div class="col mt-4">
+                        <textarea name="comments" id="comments" cols="30" rows="5" placeholder="Comments:"></textarea>
+                    </div>
+                </div>
+                {% endif %}
                 <div class="row">
                     <div class="col my-4">
                         <button class="btn btn-lg btn-success">Submit</button>
